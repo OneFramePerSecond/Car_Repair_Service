@@ -3,239 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АвтоМастер - Вход</title>
+    <title>Автомастерская</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Login Screen -->
-    <div id="loginScreen" class="screen active">
-        <div class="container">
-            <div class="logo-section">
-                <div class="logo-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" fill="currentColor"/>
-                    </svg>
-                </div>
-                <h1 class="logo-text">АвтоМастер</h1>
-                <p class="subtitle">Сервис обслуживания автомобилей</p>
-            </div>
-
-            <form class="auth-form" id="loginForm">
-                <div class="input-group">
-                    <label for="loginEmail" class="input-label">Email или телефон</label>
-                    <input type="text" id="loginEmail" class="input-field" placeholder="example@mail.ru" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="loginPassword" class="input-label">Пароль</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="loginPassword" class="input-field" placeholder="Введите пароль" required>
-                        <button type="button" class="icon-button toggle-password" aria-label="Показать пароль">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="currentColor"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <button type="button" class="text-button forgot-password" onclick="showScreen('recoveryScreen')">
-                    Забыли пароль?
-                </button>
-
-                <button type="submit" class="btn btn-primary">
-                    Войти
-                </button>
-
-                <div class="divider">
-                    <span>или</span>
-                </div>
-
-                <button type="button" class="btn btn-outlined" onclick="showScreen('registerScreen')">
-                    Создать аккаунт
-                </button>
-            </form>
+    <!-- Боковой сайдбар в стиле Яндекс Музыки -->
+    <div class="sidebar">
+        <div class="sidebar-header" id="logo-header">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+            <h3>Автосервис</h3>
         </div>
+        
+        <nav class="sidebar-nav" id="sidebar-nav">
+            <!-- Навигация будет показана только на главном экране -->
+        </nav>
     </div>
 
-    <!-- Registration Screen -->
-    <div id="registerScreen" class="screen">
-        <div class="container">
-            <div class="header-bar">
-                <button class="icon-button" onclick="showScreen('loginScreen')" aria-label="Назад">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
-                    </svg>
-                </button>
-                <h2 class="header-title">Регистрация</h2>
+    <!-- Основной контент с градиентным фоном -->
+    <div class="main-content">
+        <!-- Экран входа -->
+        <div id="login-screen" class="screen active">
+            <div class="auth-container">
+                <div class="card">
+                    <h1>Вход</h1>
+                    <p class="subtitle">Войдите в свой аккаунт</p>
+                    
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label>Email или телефон</label>
+                            <!-- Добавлен placeholder -->
+                            <input type="text" id="login-email" placeholder="example@mail.ru или +7 900 123-45-67" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <div class="password-input">
+                                <!-- Добавлен placeholder -->
+                                <input type="password" id="login-password" placeholder="Введите пароль" required>
+                                <!-- Заменен эмодзи на SVG иконку -->
+                                <button type="button" class="toggle-password">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button type="button" id="forgot-password-btn" class="link-btn">Забыли пароль?</button>
+                        
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                        <button type="button" id="go-to-register" class="btn btn-outline">Создать аккаунт</button>
+                    </form>
+                </div>
             </div>
-
-            <form class="auth-form" id="registerForm">
-                <div class="input-group">
-                    <label for="registerName" class="input-label">Имя</label>
-                    <input type="text" id="registerName" class="input-field" placeholder="Иван Иванов" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="registerCity" class="input-label">Город обслуживания</label>
-                    <input type="text" id="registerCity" class="input-field" placeholder="Москва" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="registerPhone" class="input-label">Контактный телефон</label>
-                    <input type="tel" id="registerPhone" class="input-field" placeholder="+7 (999) 123-45-67" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="registerEmail" class="input-label">Электронная почта</label>
-                    <input type="email" id="registerEmail" class="input-field" placeholder="example@mail.ru" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="registerPassword" class="input-label">Пароль</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="registerPassword" class="input-field" placeholder="Минимум 8 символов" required>
-                        <button type="button" class="icon-button toggle-password" aria-label="Показать пароль">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="currentColor"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <span class="helper-text">Используйте минимум 8 символов</span>
-                </div>
-
-                <button type="submit" class="btn btn-primary">
-                    Зарегистрироваться
-                </button>
-            </form>
         </div>
-    </div>
 
-    <!-- Password Recovery Screen -->
-    <div id="recoveryScreen" class="screen">
-        <div class="container">
-            <div class="header-bar">
-                <button class="icon-button" onclick="showScreen('loginScreen')" aria-label="Назад">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
-                    </svg>
-                </button>
-                <h2 class="header-title">Восстановление пароля</h2>
-            </div>
-
-            <div class="info-section">
-                <p class="info-text">Введите email или номер телефона, и мы отправим вам новый пароль</p>
-            </div>
-
-            <form class="auth-form" id="recoveryForm">
-                <div class="input-group">
-                    <label for="recoveryContact" class="input-label">Email или телефон</label>
-                    <input type="text" id="recoveryContact" class="input-field" placeholder="example@mail.ru или +7 999 123-45-67" required>
+        <!-- Экран регистрации -->
+        <div id="register-screen" class="screen">
+            <div class="auth-container">
+                <div class="card">
+                    <button type="button" id="register-back" class="back-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Назад
+                    </button>
+                    
+                    <h1>Регистрация</h1>
+                    <p class="subtitle">Создайте новый аккаунт</p>
+                    
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <!-- Added pattern validation for letters only -->
+                            <input type="text" id="register-name" placeholder="Иван Иванов" required pattern="[A-Za-zА-Яа-я\s]+">
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Город</label>
+                            <!-- Added pattern validation for letters only -->
+                            <input type="text" id="register-city" placeholder="Москва" required pattern="[A-Za-zА-Яа-я\s]+">
+                            <span class="error-message" id="city-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Телефон</label>
+                            <!-- Added phone mask -->
+                            <input type="tel" id="register-phone" placeholder="+7 ___ ___ __ __" required>
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email</label>
+                            <!-- Added email validation -->
+                            <input type="email" id="register-email" placeholder="example@mail.ru" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <div class="password-input">
+                                <!-- Added password validation -->
+                                <input type="password" id="register-password" placeholder="Минимум 6 символов" required minlength="6">
+                                <button type="button" class="toggle-password">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="error-message" id="password-error"></span>
+                        </div>
+                        
+                        <!-- Added password confirmation field -->
+                        <div class="form-group">
+                            <label>Подтвердите пароль</label>
+                            <div class="password-input">
+                                <input type="password" id="register-password-confirm" placeholder="Повторите пароль" required>
+                                <button type="button" class="toggle-password">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="error-message" id="password-confirm-error"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Создать аккаунт</button>
+                    </form>
                 </div>
-
-                <button type="submit" class="btn btn-primary">
-                    Отправить новый пароль
-                </button>
-            </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Main Dashboard Screen -->
-    <div id="dashboardScreen" class="screen">
-        <div class="dashboard-container">
-            <!-- Top App Bar -->
-            <header class="top-app-bar">
-                <h1 class="app-bar-title">АвтоМастер</h1>
-                <button class="icon-button" onclick="logout()" aria-label="Выйти">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/>
-                    </svg>
-                </button>
-            </header>
+        <!-- Экран восстановления пароля -->
+        <div id="recovery-screen" class="screen">
+            <div class="auth-container">
+                <div class="card">
+                    <button type="button" id="recovery-back" class="back-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Назад
+                    </button>
+                    
+                    <h1>Восстановление</h1>
+                    <p class="subtitle">Введите email или телефон</p>
+                    
+                    <form id="recovery-form">
+                        <div class="form-group">
+                            <label>Email или телефон</label>
+                            <!-- Добавлен placeholder -->
+                            <input type="text" id="recovery-contact" placeholder="example@mail.ru или +7 900 123-45-67" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Отправить пароль</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-            <div class="dashboard-content">
-                <!-- User Profile Card -->
-                <section class="card profile-card">
+        <!-- Главный экран -->
+        <div id="main-screen" class="screen">
+            <div class="container">
+                <!-- Профиль -->
+                <div class="card">
                     <div class="card-header">
-                        <div class="profile-avatar">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+                        <h2>Профиль</h2>
+                        <!-- Заменен эмодзи на SVG иконку -->
+                        <button type="button" id="logout-btn" class="icon-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
                             </svg>
+                        </button>
+                    </div>
+                    <div class="profile-grid">
+                        <div class="profile-item">
+                            <span class="label">Имя</span>
+                            <span id="user-name"></span>
                         </div>
-                        <div class="profile-info">
-                            <h2 class="profile-name" id="userName">Иван Иванов</h2>
-                            <p class="profile-detail" id="userCity">Москва</p>
+                        <div class="profile-item">
+                            <span class="label">Email</span>
+                            <span id="user-email"></span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="label">Телефон</span>
+                            <span id="user-phone"></span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="label">Город</span>
+                            <span id="user-city"></span>
                         </div>
                     </div>
-                    <div class="card-content">
-                        <div class="profile-contacts">
-                            <div class="contact-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-                                </svg>
-                                <span id="userEmail">ivan@mail.ru</span>
-                            </div>
-                            <div class="contact-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
-                                </svg>
-                                <span id="userPhone">+7 (999) 123-45-67</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-actions">
-                        <button class="btn btn-text" onclick="showSnackbar('Функция в разработке')">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/>
+                    <div class="btn-group">
+                        <button type="button" id="request-call-btn" class="btn btn-outline">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                             </svg>
                             Заказать звонок
                         </button>
-                        <button class="btn btn-text" onclick="showSnackbar('Открываем чат поддержки...')">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" fill="currentColor"/>
+                        <button type="button" id="support-btn" class="btn btn-outline">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
                             Поддержка
                         </button>
                     </div>
-                </section>
+                </div>
 
-                <!-- Cars Section -->
-                <section class="section">
-                    <div class="section-header">
-                        <h3 class="section-title">Мои автомобили</h3>
-                        <button class="btn btn-primary-icon" onclick="showSnackbar('Добавление автомобиля...')" aria-label="Добавить автомобиль">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+                <!-- Автомобили -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Мои автомобили</h2>
+                        <!-- Заменен эмодзи на SVG иконку -->
+                        <button type="button" id="add-car-btn" class="icon-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
                             </svg>
                         </button>
                     </div>
+                    <div id="cars-list"></div>
+                </div>
 
-                    <div class="cars-list" id="carsList">
-                        <!-- Car cards will be inserted here by JavaScript -->
-                    </div>
-                </section>
-
-                <!-- Service Requests Section -->
-                <section class="section">
-                    <div class="section-header">
-                        <h3 class="section-title">Заявки на обслуживание</h3>
-                        <button class="btn btn-primary-icon" onclick="showSnackbar('Создание новой заявки...')" aria-label="Создать заявку">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+                <!-- Заявки -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Заявки на обслуживание</h2>
+                        <button type="button" id="create-request-btn" class="icon-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
                             </svg>
                         </button>
                     </div>
-
-                    <div class="requests-list" id="requestsList">
-                        <!-- Service request cards will be inserted here by JavaScript -->
-                    </div>
-                </section>
+                    <div id="requests-list"></div>
+                </div>
             </div>
         </div>
+
+        <!-- Модальное окно создания заявки -->
+        <div id="request-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Новая заявка</h2>
+                    <button type="button" id="close-modal" class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="request-form">
+                    <div class="form-group">
+                        <label>Выберите автомобиль</label>
+                        <select id="request-car" required>
+                            <option value="">Выберите автомобиль</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Тип обслуживания</label>
+                        <select id="request-service" required>
+                            <option value="">Выберите услугу</option>
+                            <option value="Техническое обслуживание">Техническое обслуживание</option>
+                            <option value="Диагностика">Диагностика</option>
+                            <option value="Ремонт двигателя">Ремонт двигателя</option>
+                            <option value="Малярные работы">Малярные работы</option>
+                            <option value="Замена масла">Замена масла</option>
+                            <option value="Шиномонтаж">Шиномонтаж</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Желаемая дата</label>
+                        <input type="date" id="request-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Комментарий</label>
+                        <!-- Добавлен placeholder -->
+                        <textarea id="request-comment" rows="3" placeholder="Опишите проблему или пожелания"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Создать заявку</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Модальное окно добавления автомобиля -->
+        <div id="car-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Добавить автомобиль</h2>
+                    <button type="button" id="close-car-modal" class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="car-form">
+                    <div class="form-group">
+                        <label>Марка</label>
+                        <input type="text" id="car-brand" placeholder="Toyota, BMW, Mercedes..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Модель</label>
+                        <input type="text" id="car-model" placeholder="Camry, X5, E-Class..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Год выпуска</label>
+                        <input type="text" id="car-year" placeholder="2020" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Номер</label>
+                        <input type="text" id="car-plate" placeholder="А123БВ" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Добавить автомобиль</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Уведомление -->
+        <div id="snackbar"></div>
     </div>
 
-    <!-- Snackbar for notifications -->
-    <div id="snackbar" class="snackbar"></div>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
